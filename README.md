@@ -1,10 +1,10 @@
 # customs
 This repository contains custom configurations and scripts that have made terminal life easier and more enjoyable.
 
-NB:
+Notes:
 - All run commands are from repository root unless otherwise specified.
 
-## keyboard
+## keyboard ("take back CTRL")
 Do yourself a _massive_ favor and remap `Caps Lock` => `Ctrl` on your keyboard. The impact of this is > the `.` trick in vim. Instructions on how-to will be keyboard specific.
 
 ## tilix (linux)
