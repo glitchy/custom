@@ -1,0 +1,40 @@
+# add any of the following shell functions to your rc file and source file
+function update () {
+  echo 'updating OhMyZsh...';
+  omz update;
+  echo 'updating yay...';
+  # arch only
+  yay -Syuu;
+  echo 'updating brew...';
+  brew update;
+  brew upgrade;
+  echo 'updating rust';
+  rustup update;
+
+}
+# function to connect to vanilla SSH (no tmux).
+function tssh () {
+    /usr/bin/ssh -t $@ "tmux attach || tmux new" || echo "The server you are connecting to doesn't appear to have 'tmux' installed. Try 'ssh' for connecting without automatic tmux connection.";
+}
+# removes OLD containers, images, and volumes
+function docker-cleanup () {
+    echo 'removing old containers...';
+    docker container rm -v $(docker ps -aqf status=exited);
+    echo 'removing old images...';
+    docker rmi $(docker images -qf "dangling=true");
+    echo 'removing old volumes...';
+    docker volume rm $(docker volume ls -qf dangling=true);
+}
+# removes ALL containers, images, and volumes
+function docker-prune () {
+    echo 'stopping all containers...';
+    docker kill $(docker ps -q);
+    echo 'removing all containers...';
+    docker stop $(docker ps -aq);
+    echo 'removing all images...';
+    docker rmi $(docker images -q);
+    echo 'removing all volumes...';
+    docker volume rm $(docker volume ls -q);
+    echo 'system prune...';
+    docker system prune -af;
+}
