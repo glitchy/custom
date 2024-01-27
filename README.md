@@ -1,11 +1,14 @@
 # customs
 This repository contains custom configurations and scripts that have made terminal life easier and more enjoyable.
 
-Notes:
-- All run commands are from repository root unless otherwise specified.
+notes:
+- all run commands are from repository root unless otherwise specified
 
 ## keyboard ("take back CTRL")
-Do yourself a _massive_ favor and remap `Caps Lock` => `Ctrl` on your keyboard. The impact of this is > the `.` trick in vim. Instructions on how-to will be keyboard specific.
+Do yourself a _massive_ favor and remap `Ctrl` to your `Caps Lock` key on your keyboard. The impact of this is > the `.` trick in vim. Instructions on how-to will be keyboard specific.
+
+notes:
+- I remapped my `Caps Lock` to `[Fn-Alt-Tab]` over two years ago now and haven't used it once
 
 ## tilix (linux)
 The daily driver.
@@ -14,7 +17,7 @@ The daily driver.
 1. download [Tilix][tilix]
 2. run `dconf load '/com/gexperts/Tilix/' < ./tilix/tilix-settings.dconf`
 
-Notes:
+notes:
 - change windows: `[A-h]` && `[A-j]`
 - copy/paste: `[C-S-c]`/`[C-S-v]`
 
@@ -25,7 +28,7 @@ Tinkering with custom lua configs are a lot of fun (a worthwhile learning endeav
 1. install [NvChad][nvchad]
 2. run `cp -rf nvim/custom ~/.config/nvim/lua/custom && nvim`
 
-Notes:
+notes:
 - change buffers: `[C-h]` && `[C-j]`
 - normal copy: `[Cmd-y]`
 - insert paste: `[C-S-v]`
