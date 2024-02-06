@@ -2,6 +2,10 @@
 # script to do basic setup for macos-it
 # nb. the script assumes that you already have `git@github.com:glitchy/customs.git` cloned down to ~/Source/
 
+# replace all placeholders with your user
+user=$1
+sed -i 's/{your_user}/$user/g' ~/Source/customs/nvim/configs/lsp/init.lua
+
 ##### TERMINAL #####
 
 # brew (package manager)

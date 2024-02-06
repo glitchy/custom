@@ -12,6 +12,11 @@ lspconfig.rust_analyzer.setup {
     ['rust-analyzer'] = {},
   },
 }
+lspconfig.elixirls.setup {
+    -- Unix
+    cmd = { "/Users/{your_user}/Source/elixir-ls/release/language_server.sh" };
+}
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -50,45 +55,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
-
---local M = {}
---
---local merge_tb = vim.tbl_deep_extend
---
---local on_attach = require("plugins.configs.lspconfig").on_attach
---local capabilities = require("plugins.configs.lspconfig").capabilities
---
---local lspconfig = require("lspconfig")
---
---local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "rust_analyzer" }
---
---for _, lsp in ipairs(servers) do
---	local opts = {
---		on_attach = on_attach,
---		capabilities = capabilities,
---	}
---
---	local exists, settings = pcall(require, "custom.configs.lsp.server-settings." .. lsp)
---	if exists then
---		opts = merge_tb("force", settings, opts)
---	end
---
---	lspconfig[lsp].setup(opts)
---end
---
---local config = {
---	virtual_text = false,
---	underline = true,
---	update_in_insert = false,
---	severity_sort = true,
---	float = {
---		focusable = false,
---		style = "minimal",
---		border = "single",
---		source = "always",
---	},
---}
---
---vim.diagnostic.config(config)
---
---return M
